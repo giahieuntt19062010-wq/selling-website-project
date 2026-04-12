@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dell Store - Cửa hàng chính hãng</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Dell_logo_2016.svg" alt="Dell Logo">
+        </div>
+        <div class="nav-links">
+            <a href="#">Trang chủ</a>
+            <a href="#xps-section">XPS</a>
+            <a href="#precision-section">Precision</a>
+            <a href="#latitude-section">Latitude</a>
+        </div>
+        <div class="nav-icons">
+<div class="nav-icons">
+    <i class="fas fa-search"></i>
+    
+    <div class="cart-wrapper">
+    <i class="fas fa-shopping-cart" id="cart-icon"></i>
+    <span class="cart-badge" id="cart-count" style="display: none;">0</span>
+    
+    <div class="cart-hover-info" id="cart-dropdown">
+        <p>Giỏ hàng đang trống</p>
+        <div id="cart-content" style="display: none;">
+            <p>Tạm tính: <span class="total-price" id="cart-total">0đ</span></p>
+            <button class="view-cart-btn">Thanh toán ngay</button>
+        </div>
+    </div>
+</div>
+    
+    <div class="auth-buttons" id="auth-section">
+        <a href="auth.html" class="btn-login" onclick="loginSimulate()">Đăng nhập</a>
+        <a href="auth.html" class="btn-register">Đăng ký</a>
+    </div>
+
+    <div class="user-logged-in" id="user-section" style="display: none;">
+        <span class="nickname">Chào, <strong id="user-name">Dell_Fan_01</strong></span>
+        <i class="fas fa-chevron-down"></i>
+        <div class="user-dropdown-menu">
+            <a href="#">Tài khoản của tôi</a>
+            <a href="#" onclick="logoutSimulate()">Đăng xuất</a>
+        </div>
+    </div>
+</div>
+            
+        </div>
+    </div>
+</nav>
+    <div class="carousel-container">
+       <button class="btn prev" onclick="moveSlide(-1)">&#10094;</button>
+       <button class="btn next" onclick="moveSlide(1)">&#10095;</button>
+
+      <div class="slides" id="slider">
+        <div class="slide">
+            <img src="vi-vn-dell-xps-13-9350-ultra-7-258v-pp9h1-slider-1.jpg" alt="Dell XPS 1">
+        </div>
+        <div class="slide">
+            <img src="vi-vn-dell-latitude-3450-i5-l34501335u16512wn-slider-1.jpg" alt="Dell XPS 2">
+        </div>
+        <div class="slide">
+            <img src="vi-vn-dell-precision-16-7680-i7-71024681-slider-1.jpg" alt="Dell XPS 3">
+        </div>
+      </div>
+
+      <div class="dots-container" id="dots">
+        <span class="dot active" onclick="currentSlide(0)"></span>
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+      </div>
+    </div>
+    <section class="promo-banner-container">
+       <a href="#link-khuyen-mai" class="promo-banner-link">
+        <img src="dellcopy_800x450.jpg" alt="Mua Dell, có ba lô đeo" class="promo-banner-img">
+       </a>
+    </section>
+
+    <div class="container">
+        <main class="main-content">
+            
+            <h2 class="section-title" id="xps-section">Dòng Dell XPS Cao Cấp</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="card-badges"><span class="badge new">SALE</span></div>
+                    
+                    <img src="xps-13-9315-HanoiLab-7-scaled.jpg" alt="Dell XPS 13 9315" style="width: 100%; height: 153.25px; object-fit: contain;">
+                    <div class="p-content">
+                        <h3 class="p-name">Dell XPS 13 9315</h3>
+                        <div class="p-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> <span>4.5 (20)</span></div>
+                        <div class="p-price-box">
+                            <p class="price-current">24.500.000 ₫</p>
+                            <p class="price-old">26.000.000 ₫ <span class="save-tag">SAVE 1.500.000 ₫</span></p>
+                        </div>
+                        <ul class="p-specs">
+                            <li>Windows 11 Home</li>
+                            <li>Intel® Core™ i5-1230U</li>
+                            <li>Intel® Iris® Xe Graphics</li>
+                            <li>Màn hình 13.4" FHD+ (1920 x 1200)</li>
+                            <li>8GB LPDDR5 RAM</li>
+                            <li>256GB SSD</li>
+                        </ul>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn-buy" onclick="addToCart('Dell XPS 13 9315', 24500000)">Mua ngay</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="card-badges"><span class="badge deal">NEW</span></div>
+                    <img src="DELL-XPS-13-PLUS-9320-Hanoilab-3-scaled.jpg" alt=; style="width: 100%; height: auto; object-fit: contain;">
+                    <div class="p-content">
+                        <h3 class="p-name">Dell XPS 13 Plus 9320</h3>
+                        <div class="p-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <span>5.0 (15)</span></div>
+                        <div class="p-price-box">
+                            <p class="price-current">38.900.000 ₫</p>
+                            <p class="price-old">42.900.000 ₫ <span class="save-tag">SAVE 4.000.000 ₫</span></p>
+                        </div>
+                        <ul class="p-specs">
+                            <li>Windows 11 Pro</li>
+                            <li>Intel® Core™ i7-1360P</li>
+                            <li>Intel® Iris® Xe Graphics</li>
+                            <li>Màn hình 13.4" 3.5K OLED Touch</li>
+                            <li>16GB LPDDR5 RAM</li>
+                            <li>512GB SSD</li>
+                        </ul>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn-buy" onclick="addToCart('Dell XPS 13 Plus', 38900000)">Mua ngay</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="card-badges"><span class="badge deal">NEW</span></div>
+                    <img src="dell-xps-15-9530-i7-71015716-thumb-600x600.jpg" alt=; style="width: 100%; height: 153.25px; object-fit: contain;">
+                    <div class="p-content">
+                        <h3 class="p-name">Dell XPS 15 9530</h3>
+                        <div class="p-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> <span>4.8 (32)</span></div>
+                        <div class="p-price-box">
+                            <p class="price-current">48.000.000 ₫</p>
+                            <p class="price-old">51.000.000 ₫ <span class="save-tag">SAVE 3.000.000 ₫</span></p>
+                        </div>
+                        <ul class="p-specs">
+                            <li>Windows 11 Home</li>
+                            <li>Intel® Core™ i7-13700H</li>
+                            <li>NVIDIA® GeForce RTX™ 4050</li>
+                            <li>Màn hình 15.6" FHD+</li>
+                            <li>16GB LPDDR5 RAM</li>
+                            <li>512GB SSD</li>
+                        </ul>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn-buy" onclick="addToCart('Dell XPS 15 9530', 48000000)">Mua ngay</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="card-badges"><span class="badge new">SALE</span></div>
+                    <img src="dell-xps-9730-keyboard-2mobile.jpg" alt=; style="width: 100%; height: 153.25px; object-fit: contain;">
+                    
+                    <div class="p-content">
+                        <h3 class="p-name">Dell XPS 17 9730</h3>
+                        <div class="p-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <span>5.0 (8)</span></div>
+                        <div class="p-price-box">
+                            <p class="price-current">65.500.000 ₫</p>
+                            <p class="price-old">70.000.000 ₫ <span class="save-tag">SAVE 4.500.000 ₫</span></p>
+                        </div>
+                        <ul class="p-specs">
+                            <li>Windows 11 Pro</li>
+                            <li>Intel® Core™ i9-13900H</li>
+                            <li>NVIDIA® GeForce RTX™ 4070</li>
+                            <li>Màn hình 17.0" 4K UHD+ Touch</li>
+                            <li>32GB LPDDR5 RAM</li>
+                            <li>1TB SSD</li>
+                        </ul>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn-buy" onclick="addToCart('Dell XPS 17 9730', 65500000)">Mua ngay</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="card-badges"><span class="badge new">SALE</span></div>
+                    <img src="dell_xps_13_2-in-1_95610c16b4a347cd89a08b01af282b1a.jpg" alt=; style="width: 100%; height: 153.25px; object-fit: contain;">
+                    
+                    <div class="p-content">
+                        <h3 class="p-name">Dell XPS 13 2-in-1</h3>
+                        <div class="p-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> <span>4.0 (12)</span></div>
+                        <div class="p-price-box">
+                            <p class="price-current">32.000.000 ₫</p>
+                            <p class="price-old">34.500.000 ₫ <span class="save-tag">SAVE 2.500.000 ₫</span></p>
+                        </div>
+                        <ul class="p-specs">
+                            <li>Windows 11 Home</li>
+                            <li>Intel® Core™ i7-1250U</li>
+                            <li>Intel® Iris® Xe Graphics</li>
+                            <li>Màn hình 13.0" 3K Touch</li>
+                            <li>16GB LPDDR4 RAM</li>
+                            <li>512GB SSD</li>
+                        </ul>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn-buy" onclick="addToCart('Dell XPS 13 2-in-1', 32000000)">Mua ngay</button>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title" id="precision-section" style="margin-top: 40px;">Dòng Dell Precision Máy Trạm</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="card-badges"><span class="badge deal">NEW</span></div>
+                    <img src="dell-precision-15-3581-2023-mac24h.jpg" alt=; style="width: 100%; height: 153.25px; object-fit: contain;">
+                    
+                    <div class="p-content">
+                        <h3 class="p-name">Dell Precision 3581</h3>
+                        <div class="p-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> <span>4.6 (18)</span></div>
+                        <div class="p-price-box">
+                            <p class="price-current">34.500.000 ₫</p>
+                            <p class="price-old">36.000.000 ₫ <span class="save-tag">SAVE 1.500.000 ₫</span></p>
+                        </div>
+                        <ul class="p-specs">
+                            <li>Windows 11 Pro</li>
+                            <li>Intel® Core™ i7-13700H</li>
+                            <li>NVIDIA® RTX™ A500 4GB</li>
+                            <li>15.6" FHD (1920x1080)</li>
+                            <li>16GB DDR5 RAM</li>
+                            <li>512GB SSD</li>
+                        </ul>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn-buy" onclick="buyProduct('Dell Precision 3581', 34500000)">Mua ngay</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="card-badges"><span class="badge deal">NEW</span></div>
+                    <img src="workstation-precision-14-5480-gallery-5.png" alt=; style="width: 100%; height: 153.25px; object-fit: contain;">
+                    <div class="p-content">
+                        <h3 class="p-name">Dell Precision 5480</h3>
+                        <div class="p-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <span>4.9 (22)</span></div>
+                        <div class="p-price-box">
+                            <p class="price-current">49.000.000 ₫</p>
+                            <p class="price-old">52.000.000 ₫ <span class="save-tag">SAVE 3.000.000 ₫</span></p>
+                        </div>
+                        <ul class="p-specs">
+                            <li>Windows 11 Pro</li>
+                            <li>Intel® Core™ i7-13800H</li>
+                            <li>NVIDIA® RTX™ A1000 6GB</li>
+                            <li>14.0" FHD+ (1920x1200)</li>
+                            <li>32GB LPDDR5 RAM</li>
+                            <li>512GB SSD</li>
+                        </ul>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn-buy" onclick="buyProduct('Dell Precision 5480', 49000000)">Mua ngay</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="card-badges"><span class="badge new">sale</span></div>
+                    <img src="Dell-Precision-5680-16-inch-2023-mac24h.png" alt=; style="width: 100%; height: 153.25px; object-fit: contain;">
+                    <div class="p-content">
+                        <h3 class="p-name">Dell Precision 5680</h3>
+                        <div class="p-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <span>5.0 (10)</span></div>
+                        <div class="p-price-box">
+                            <p class="price-current">75.000.000 ₫</p>
+                            <p class="price-old">80.000.000 ₫ <span class="save-tag">SAVE 5.000.000 ₫</span></p>
+                        </div>
+                        <ul class="p-specs">
+                            <li>Windows 11 Pro</li>
+                            <li>Intel® Core™ i9-13900H</li>
+                            <li>NVIDIA® RTX™ 2000 Ada</li>
+                            <li>16.0" FHD+ OLED</li>
+                            <li>32GB LPDDR5 RAM</li>
+                            <li>1TB SSD</li>
+                        </ul>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn-buy" onclick="buyProduct('Dell Precision 5680', 75000000)">Mua ngay</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="card-badges"><span class="badge new">sale</span></div>
+                    <img src="Precision-7680-Workstation-4.jpg" alt=; style="width: 100%; height: 153.25px; object-fit: contain;">
+                    <div class="p-content">
+                        <h3 class="p-name">Dell Precision 7680</h3>
+                        <div class="p-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> <span>4.7 (14)</span></div>
+                        <div class="p-price-box">
+                            <p class="price-current">58.000.000 ₫</p>
+                            <p class="price-old">61.000.000 ₫ <span class="save-tag">SAVE 3.000.000 ₫</span></p>
+                        </div>
+                        <ul class="p-specs">
+                            <li>Windows 11 Pro</li>
+                            <li>Intel® Core™ i7-13850HX</li>
+                            <li>NVIDIA® RTX™ 3500 Ada</li>
+                            <li>16.0" FHD+ WLED</li>
+                            <li>32GB CAMM Module</li>
+                            <li>1TB Gen 4 SSD</li>
+                        </ul>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn-buy" onclick="buyProduct('Dell Precision 7680', 58000000)">Mua ngay</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="card-badges"><span class="badge deal">New</span></div>
+                    <img src="dell-precision-7780-2023-right-2tmobile.jpg" alt=; style="width: 100%; height: 153.25px; object-fit: contain;">
+                    <div class="p-content">
+                        <h3 class="p-name">Dell Precision 7780</h3>
+                        <div class="p-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <span>5.0 (5)</span></div>
+                        <div class="p-price-box">
+                            <p class="price-current">110.000.000 ₫</p>
+                            <p class="price-old">120.000.000 ₫ <span class="save-tag">SAVE 10.000.000 ₫</span></p>
+                        </div>
+                        <ul class="p-specs">
+                            <li>Windows 11 Pro Workstation</li>
+                            <li>Intel® Core™ i9-13980HX</li>
+                            <li>NVIDIA® RTX™ 5000 Ada 16GB</li>
+                            <li>17.3" UHD 120Hz</li>
+                            <li>64GB CAMM RAM</li>
+                            <li>2TB Gen 4 SSD</li>
+                        </ul>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn-buy" onclick="buyProduct('Dell Precision 7780', 110000000)">Mua ngay</button>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title" id="latitude-section" style="margin-top: 40px;">Dòng Dell Latitude Doanh Nhân</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="card-badges"><span class="badge deal">NEW</span></div>
+                    <img src="-latitude-3440-i5-l3440i51235u16g512g-glr-2-638622519334247308-750x500_29f579f240f44a2fb5c3185160acebb2.jpg" alt=; style="width: 100%; height: 153.25px; object-fit: contain;">
+                     
+                    <div class="p-content">
+                        <h3 class="p-name">Dell Latitude 3440</h3>
+                        <div class="p-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> <span>4.2 (45)</span></div>
+                        <div class="p-price-box">
+                            <p class="price-current">13.500.000 ₫</p>
+                            <p class="price-old">15.000.000 ₫ <span class="save-tag">SAVE 1.500.000 ₫</span></p>
+                        </div>
+                        <ul class="p-specs">
+                            <li>Windows 11 Pro</li>
+                            <li>Intel® Core™ i3-1215U</li>
+                            <li>Intel UHD Graphics</li>
+                            <li>14.0" FHD (1920x1080)</li>
+                            <li>8GB LPDDR4 RAM</li>
+                            <li>256GB SSD</li>
+                        </ul>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn-buy" onclick="buyProduct('Dell Latitude 3440', 13500000)">Mua ngay</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="card-badges"><span class="badge deal">New</span></div>
+                    <img src="1-laptop-dell-latitude-5440.png" alt=; style="width: 100%; height: 153.25px; object-fit: contain;">
+                    <div class="p-content">
+                        <h3 class="p-name">Dell Latitude 5440</h3>
+                        <div class="p-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> <span>4.5 (30)</span></div>
+                        <div class="p-price-box">
+                            <p class="price-current">21.000.000 ₫</p>
+                            <p class="price-old">23.500.000 ₫ <span class="save-tag">SAVE 2.500.000 ₫</span></p>
+                        </div>
+                        <ul class="p-specs">
+                            <li>Windows 11 Pro</li>
+                            <li>Intel® Core™ i5-1335U</li>
+                            <li>Intel Iris Xe Graphics</li>
+                            <li>14.0" FHD IPS</li>
+                            <li>16GB DDR4 RAM</li>
+                            <li>512GB SSD</li>
+                        </ul>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn-buy" onclick="buyProduct('Dell Latitude 5440', 21000000)">Mua ngay</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="card-badges"><span class="badge new">sale</span></div>
+                    <img src="images.jpg" alt=; style="width: 100%; height: 153.25px; object-fit: contain;">
+                    <div class="p-content">
+                        <h3 class="p-name">Dell Latitude 7440</h3>
+                        <div class="p-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <span>4.8 (25)</span></div>
+                        <div class="p-price-box">
+                            <p class="price-current">31.000.000 ₫</p>
+                            <p class="price-old">34.000.000 ₫ <span class="save-tag">SAVE 3.000.000 ₫</span></p>
+                        </div>
+                        <ul class="p-specs">
+                            <li>Windows 11 Pro</li>
+                            <li>Intel® Core™ i7-1355U</li>
+                            <li>Intel Iris Xe Graphics</li>
+                            <li>14.0" FHD+ Ultralight</li>
+                            <li>16GB LPDDR5 RAM</li>
+                            <li>512GB SSD</li>
+                        </ul>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn-buy" onclick="buyProduct('Dell Latitude 7440', 31000000)">Mua ngay</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="card-badges"><span class="badge new">sale</span></div>
+                    <img src="notebook-latitude-14-9440-t-wlan-gray-gallery-2.png" alt=; style="width: 100%; height: 153.25px; object-fit: contain;">
+                    <div class="p-content">
+                        <h3 class="p-name">Dell Latitude 9440 2-in-1</h3>
+                        <div class="p-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <span>5.0 (15)</span></div>
+                        <div class="p-price-box">
+                            <p class="price-current">45.000.000 ₫</p>
+                            <p class="price-old">48.500.000 ₫ <span class="save-tag">SAVE 3.500.000 ₫</span></p>
+                        </div>
+                        <ul class="p-specs">
+                            <li>Windows 11 Pro</li>
+                            <li>Intel® Core™ i7-1365U vPro</li>
+                            <li>Intel Iris Xe Graphics</li>
+                            <li>14.0" QHD+ Touch Zero-Lattice</li>
+                            <li>32GB LPDDR5 RAM</li>
+                            <li>1TB SSD</li>
+                        </ul>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn-buy" onclick="buyProduct('Dell Latitude 9440', 45000000)">Mua ngay</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="card-badges"><span class="badge new">sale</span></div>
+                    <img src="729991b0-8254-405c-b649-2486e886af57 (1).jpg" alt=; style="width: 100%; height: 153.25px; object-fit: contain;">
+                    <div class="p-content">
+                        <h3 class="p-name">Dell Latitude 5540</h3>
+                        <div class="p-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> <span>4.4 (38)</span></div>
+                        <div class="p-price-box">
+                            <p class="price-current">23.000.000 ₫</p>
+                            <p class="price-old">25.000.000 ₫ <span class="save-tag">SAVE 2.000.000 ₫</span></p>
+                        </div>
+                        <ul class="p-specs">
+                            <li>Windows 11 Pro</li>
+                            <li>Intel® Core™ i5-1345U vPro</li>
+                            <li>Intel Iris Xe Graphics</li>
+                            <li>15.6" FHD IPS</li>
+                            <li>16GB DDR4 RAM</li>
+                            <li>512GB SSD</li>
+                        </ul>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn-buy" onclick="buyProduct('Dell Latitude 5540', 23000000)">Mua ngay</button>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+<div id="chat-icon" onclick="openChatbot()">
+    <img src="https://cdn-icons-png.flaticon.com/512/134/134914.png" alt="chat-icon">
+</div>
+
+<div id="chatbot-container">
+    <iframe
+        src="https://www.chatbase.co/chatbot-iframe/plX689pUz1TY6OzKmyEY8"
+        width="100%"
+        style="height: 100%;"
+        frameborder="0"
+    ></iframe>
+</div>
+
+
+<footer class="tech-footer">
+    <div class="footer-wrap">
+        <div class="footer-column contact-area">
+            <h4 class="footer-title">Thông tin liên hệ</h4>
+            <div class="footer-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>285 Cách Mạng Tháng Tám, P.12, Q.10, TP. Hồ Chí Minh, Việt Nam</p>
+            </div>
+            <div class="footer-item">
+                <i class="fas fa-phone-alt"></i>
+                <p><span class="label">SĐT:</span> 1800 65 88</p>
+            </div>
+        </div>
+
+        <div class="footer-column info-area">
+            <p class="copyright-main">© 2026 Dell Technologies</p>
+            <div class="legal-wrap">
+                <a href="#">Thông tin hợp pháp</a>
+                <span class="divider">|</span>
+                <a href="#">Qui chế pháp lý</a>
+            </div>
+        </div>
+
+        <div class="footer-column region-area">
+            <div class="region-selector">
+                <i class="fas fa-globe"></i>
+                <span class="region-text">Vietnam / Việt Nam</span>
+            </div>
+        </div>
+
+        <div class="footer-column map-area">
+            <div class="footer-map-mini">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.447877543564!2d106.6749339758385!3d10.776967159182372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f211a30140f%3A0x367332a6884618e!2zMjg1IEPDoWNoIE3huqFuZyBUaMOhbmcgVMOhbSwgUGjGsOG7nW5nIDEyLCBRdeG6rW4gMTAsIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1700000000000" 
+                    width="100%" 
+                    height="150" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
