@@ -1,0 +1,139 @@
+/* Reset định dạng cơ bản */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body.auth-body {
+    background-color: #f5f5f5; /* Nền xám nhạt bên ngoài để làm nổi bật khung trắng */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.auth-container {
+    background-color: #ffffff;
+    width: 400px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+/* Logo Dell */
+.auth-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-header img {
+    width: 50px;
+    margin-bottom: 25px;
+}
+
+/* Tabs Đăng nhập - Đăng ký */
+.auth-tabs {
+    display: flex;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 25px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    background: #fff; /* Chuyển từ đen sang trắng theo yêu cầu */
+    color: #888; /* Chữ màu xám */
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.tab-btn.active {
+    color: #0076ce; /* Màu xanh Dell */
+    border-bottom: 3px solid #0076ce;
+}
+
+/* Form inputs */
+.input-field {
+    margin-bottom: 20px;
+}
+
+.input-field label {
+    display: block;
+    margin-bottom: 8px;
+    color: #666; /* Chữ label màu xám */
+    font-size: 14px;
+    background: #fff; /* Đảm bảo nền màu trắng */
+    padding: 5px 0;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-field input:focus {
+    border-color: #0076ce;
+}
+
+.input-field input::placeholder {
+    color: #bbb;
+}
+
+/* Checkbox và Quên mật khẩu */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 13px;
+    color: #777; /* Chữ màu xám */
+}
+
+.form-options a {
+    color: #0076ce;
+    text-decoration: none;
+}
+
+/* Nút bấm chính */
+.btn-main-blue {
+    width: 100%;
+    padding: 14px;
+    background-color: #0076ce;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background 0.3s;
+}
+
+.btn-main-blue:hover {
+    background-color: #005da3;
+}
+
+/* Footer quay lại trang chủ */
+.auth-footer {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.auth-footer a {
+    text-decoration: none;
+    color: #999; /* Màu xám nhạt */
+    font-size: 14px;
+}
+
+.auth-footer a i {
+    margin-right: 5px;
+}
+.policy-text a { color: #0076ce; text-decoration: none; font-family: 'Roboto', sans-serif;}

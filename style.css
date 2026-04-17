@@ -232,149 +232,120 @@ body {
 @media (max-width: 768px) {
     .product-grid { grid-template-columns: repeat(2, 1fr); }
 }
-/* Giao diện Đăng nhập / Đăng ký */
-.auth-body {
-    background-color: #f6f6f6;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-family: 'Roboto', sans-serif;
-}
 
-.auth-wrapper {
-    width: 100%;
-    max-width: 450px;
-    padding: 20px;
-}
-
-.auth-container {
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-    padding: 40px;
-}
-
-.auth-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.auth-header img {
-    height: 32px;
-    margin-bottom: 25px;
-}
-
-/* Tabs */
-.auth-tabs {
-    display: flex;
-    border-bottom: 1px solid #eee;
-}
-
-.tab-btn {
-    flex: 1;
-    background: none;
-    border: none;
-    padding: 12px;
+/* --- Base Styles --- */
+.tech-footer {
+    background-color: #ffffff; /* Nền trắng tinh khôi */
+    color: #333; /* Màu chữ xám đậm sang trọng */
+    border-top: 1px solid #f1f1f1; /* Đường kẻ phân cách cực mờ */
+    padding: 30px 0; /* Khoảng cách trên dưới thoáng hơn */
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     font-size: 14px;
-    font-weight: 700;
-    color: #999;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.tab-btn.active {
-    color: #0076ce;
-    border-bottom: 2px solid #0076ce;
-}
-
-/* Nội dung Form */
-.auth-content {
-    display: none;
-}
-
-.auth-content.active {
-    display: block;
-    animation: fadeIn 0.4s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.input-field {
-    margin-bottom: 18px;
-}
-
-.input-field label {
-    display: block;
-    font-size: 13px;
-    font-weight: 500;
-    margin-bottom: 6px;
-    color: #333;
-}
-
-.input-field input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-    outline: none;
-    transition: 0.2s;
-}
-
-.input-field input:focus {
-    border-color: #0076ce;
-}
-
-.btn-main-blue {
-    width: 100%;
-    padding: 14px;
-    background: #0076ce;
-    color: #fff;
-    border: none;
-    font-size: 14px;
-    font-weight: 700;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-.btn-main-blue:hover {
-    background: #005a9e;
-}
-
-.form-options {
-    display: flex;
-    justify-content: space-between;
-    font-size: 13px;
-    margin-bottom: 20px;
-    color: #666;
-}
-
-.form-options a { color: #0076ce; text-decoration: none; }
-
-.policy-text {
-    font-size: 12px;
     line-height: 1.5;
-    color: #888;
-    margin-bottom: 20px;
 }
 
-.policy-text a { color: #0076ce; text-decoration: none; }
+.footer-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between; /* Đẩy 3 phần ra 2 bên và giữa */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    flex-wrap: wrap; /* Tự động xuống dòng trên mobile */
+}
 
-.auth-footer {
+/* --- Từng Phần --- */
+.footer-area {
+    margin-bottom: 0px; /* Reset margin */
+}
+
+/* 1. Phần Liên hệ */
+.contact-area {
+    flex: 0 0 320px; /* Cố định độ rộng khoảng 30% */
+}
+
+.footer-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #111;
+}
+
+.footer-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+
+.footer-item i {
+    color: #0076d2; /* Màu xanh Dell tinh tế cho biểu tượng */
+    font-size: 13px;
+    margin-right: 10px;
+    margin-top: 4px; /* Căn i thẳng hàng với dòng đầu */
+}
+
+.footer-item p {
+    margin: 0;
+    flex: 1;
+}
+
+.footer-item .label {
+    font-weight: 600;
+    margin-right: 5px;
+}
+
+/* 2. Phần Thông tin / Hợp pháp */
+.info-area {
+    flex: 1; /* Cột giữa rộng nhất */
     text-align: center;
-    margin-top: 30px;
+    padding: 0 30px;
 }
 
-.auth-footer a {
+.copyright-main {
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #111;
+}
+
+.legal-wrap {
     color: #888;
-    text-decoration: none;
     font-size: 13px;
 }
 
+.legal-wrap a {
+    text-decoration: none;
+    color: #666;
+    transition: color 0.3s ease; /* Hiệu ứng hover mượt mà */
+}
+
+.legal-wrap a:hover {
+    color: #0076d2;
+}
+
+.divider {
+    margin: 0 8px;
+}
+
+/* 3. Phần Khu vực */
+.region-area {
+    flex: 0 0 auto; /* Khu vực này chỉ rộng vừa đủ chứa nội dung */
+    text-align: right;
+}
+
+.region-selector {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: #333;
+    font-size: 14px;
+}
+
+.region-selector i {
+    font-size: 16px;
+    color: #555;
+    margin-right: 8px;
+}
 
 /* --- Responsive (Cho màn hình nhỏ) --- */
 @media (max-width: 992px) {
@@ -555,6 +526,11 @@ body {
 .user-dropdown-menu a:hover {
     background: #f8f9fa;
     color: #0076ce;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeIn {
