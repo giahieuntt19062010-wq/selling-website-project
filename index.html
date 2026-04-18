@@ -24,9 +24,9 @@
             <a href="#precision-section">Precision</a>
             <a href="#latitude-section">Latitude</a>
         </div>
-        <div class="nav-icons">
 <div class="nav-icons">
-    <i class="fas fa-search"></i>
+
+              
     
     <div class="cart-wrapper">
     <i class="fas fa-shopping-cart" id="cart-icon"></i>
@@ -466,7 +466,37 @@
 
         </main>
     </div>
+ <div id="detailPage" class="detail-overlay">
+    <div class="detail-container">
+        <button class="btn-back" onclick="closeDetail()">
+            <i class="fas fa-chevron-left"></i> Quay lại trang chủ
+        </button>
+        
+        <div class="detail-content">
+            <div class="detail-image">
+                <img id="detailImg" src="" alt="Dell Product">
+            </div>
+            
+            <div class="detail-info">
+                <h1 id="detailName"></h1>
+                <p id="detailPrice" class="detail-price"></p>
+                
+                <div class="specs-section">
+                    <div class="specs-header">
+                        <i class="fas fa-microchip"></i>
+                        <span>Cấu hình chi tiết</span>
+                    </div>
+                    <ul id="detailSpecsList">
+                        </ul>
+                </div>
 
+                <div class="detail-footer-note">
+                    <p>* Thông số kĩ thuật có thể thay đổi tùy theo phiên bản và khu vực.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
 <div id="chat-icon" onclick="openChatbot()">
     <img src="https://cdn-icons-png.flaticon.com/512/134/134914.png" alt="chat-icon">
 </div>

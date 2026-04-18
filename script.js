@@ -283,3 +283,43 @@ let flagChatbot = false;
 
     // Tự động chuyển slide sau 5 giây (tùy chọn)
     setInterval(() => moveSlide(1), 5000);
+document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.product-card');
+    const detailPage = document.getElementById('detailPage');
+
+    cards.forEach(card => {
+        // Xóa các nút cũ bên trong card nếu còn sót lại để block sạch hoàn toàn
+        const oldActions = card.querySelector('.card-actions');
+        if (oldActions) oldActions.remove();
+
+        card.addEventListener('click', () => {
+            // Thu thập dữ liệu
+            const name = card.querySelector('.p-name').innerText;
+            const price = card.querySelector('.price-current').innerText;
+            const img = card.querySelector('img').src;
+            const specs = card.querySelectorAll('.p-specs li');
+
+            // Hiển thị dữ liệu lên trang chi tiết
+            document.getElementById('detailName').innerText = name;
+            document.getElementById('detailPrice').innerText = price;
+            document.getElementById('detailImg').src = img;
+            
+            const specsList = document.getElementById('detailSpecsList');
+            specsList.innerHTML = '';
+            specs.forEach(s => {
+                const li = document.createElement('li');
+                // Tách thông số để tạo giao diện đẹp hơn (nếu có dấu :)
+                li.innerHTML = `<span>${s.innerText}</span> <i class="fas fa-check-circle" style="color: #a8e6cf"></i>`;
+                specsList.appendChild(li);
+            });
+
+            detailPage.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
+    });
+});
+
+function closeDetail() {
+    document.getElementById('detailPage').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}       

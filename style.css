@@ -875,3 +875,145 @@ body {
     transform: translateY(-3px); /* Nổi lên một chút */
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Đổ bóng đậm hơn một chút khi nổi lên */
 }
+/*phần tìm kiếm trong .navbar
+/* Container bao quanh thanh search */
+.nav-search-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    background: #f4f4f4; /* Màu xám rất nhạt để phân biệt với nền trắng của nav */
+    border-radius: 20px;
+    padding: 5px 15px;
+    margin: 0 15px; /* Tạo khoảng cách với giỏ hàng và menu */
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+/* Hiệu ứng khi nhấn vào ô search */
+.nav-search-wrapper:focus-within {
+    background: #fff;
+    border-color: #0076ce;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Ô input chính */
+#nav-search-input {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 14px;
+    font-weight: 300; /* Làm chữ mảnh cho giống font Dell */
+    color: #333;
+    width: 150px; /* Độ rộng vừa phải để không chiếm hết chỗ của menu */
+    transition: width 0.4s ease;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+/* Khi click vào thì thanh search dài ra một chút cho sang */
+#nav-search-input:focus {
+    width: 220px;
+}
+
+/* Nút icon search */
+#nav-search-submit {
+    background: none;
+    border: none;
+    color: #555;
+    cursor: pointer;
+    padding-left: 8px;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s;
+}
+
+#nav-search-submit:hover {
+    color: #0076ce;
+}
+
+/* Tùy chỉnh placeholder cho mảnh và xám nhẹ */
+#nav-search-input::placeholder {
+    color: #999;
+    font-weight: 300;
+}
+/* Trang chi tiết toàn màn hình */
+.detail-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: #fdfdfd;
+    z-index: 9999;
+    overflow-y: auto;
+}
+
+.detail-content {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr; /* Ưu tiên không gian cho ảnh và bảng specs */
+    gap: 40px;
+    padding: 40px;
+    background: white;
+    border-radius: 30px;
+    box-shadow: 0 10px 50px rgba(0,0,0,0.05);
+}
+
+#detailName {
+    font-size: 32px;
+    color: #2d3436;
+    margin-bottom: 10px;
+    border-left: 5px solid #a8e6cf; /* Nhấn màu Mint */
+    padding-left: 15px;
+}
+
+.detail-price {
+    font-size: 24px;
+    color: #0984e3; /* Màu Sky Blue */
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+/* Bảng cấu hình chi tiết */
+.specs-section {
+    background: #f8fbf9;
+    padding: 25px;
+    border-radius: 20px;
+    border: 1px solid #eef5f2;
+}
+
+.specs-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #2d3436;
+    font-size: 18px;
+}
+
+#detailSpecsList {
+    list-style: none;
+    padding: 0;
+}
+
+#detailSpecsList li {
+    padding: 15px 0;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 15px;
+    color: #555;
+    display: flex;
+    justify-content: space-between;
+}
+
+#detailSpecsList li:last-child { border: none; }
+
+/* Nút quay lại tinh tế */
+.btn-back {
+    background: #f1f1f1;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+.btn-back:hover { background: #e0e0e0; }
