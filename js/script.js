@@ -289,8 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     cards.forEach(card => {
         // Xóa các nút cũ bên trong card nếu còn sót lại để block sạch hoàn toàn
-        const oldActions = card.querySelector('.card-actions');
-        if (oldActions) oldActions.remove();
+
 
         card.addEventListener('click', () => {
             // Thu thập dữ liệu
