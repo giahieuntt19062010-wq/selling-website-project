@@ -24,36 +24,24 @@
             <a href="#precision-section">Precision</a>
             <a href="#latitude-section">Latitude</a>
         </div>
-<div class="nav-icons">
 
-              
     
-    <div class="cart-wrapper">
-    <i class="fas fa-shopping-cart" id="cart-icon"></i>
-    <span class="cart-badge" id="cart-count" style="display: none;">0</span>
-    
-    <div class="cart-hover-info" id="cart-dropdown">
-        <p>Giỏ hàng đang trống</p>
-        <div id="cart-content" style="display: none;">
-            <p>Tạm tính: <span class="total-price" id="cart-total">0đ</span></p>
-            <button class="view-cart-btn">Thanh toán ngay</button>
-        </div>
-    </div>
-</div>
-    
-    <div class="auth-buttons" id="auth-section">
-        <a href="../html/login.html" class="btn-login" onclick="loginSimulate()">Đăng nhập</a>
-        <a href="../html/register.html" class="btn-register">Đăng ký</a>
+<div class="header-right">
+    <!-- Hiện khi chưa đăng nhập -->
+    <div id="guest-zone">
+        <a href="../html/login.html" class="nav-login-text">Đăng nhập</a>
+        <a href="../html/register.html" class="nav-register-pill">Đăng ký</a>
     </div>
 
-    <div class="user-logged-in" id="user-section" style="display: none;">
-        <span class="nickname">Chào, <strong id="user-name">Dell_Fan_01</strong></span>
-        <i class="fas fa-chevron-down"></i>
-        <div class="user-dropdown-menu">
-            <a href="#">Tài khoản của tôi</a>
-            <a href="#" onclick="logoutSimulate()">Đăng xuất</a>
+    <!-- Hiện tên Username khi đăng nhập xong -->
+    <div id="user-zone" style="display: none;">
+        <div class="user-pill-display">
+            <span>Chào, <strong id="user-display-name"></strong>!</span>
+            <button onclick="handleLogout()" class="logout-btn-icon"><i class="fas fa-sign-out-alt"></i></button>
         </div>
     </div>
+
+
 </div>
             
         </div>
@@ -109,7 +97,7 @@
                         </ul>
                     </div>
                     <div class="card-actions">
-                        <button class="btn-buy" onclick="addToCart('Dell XPS 13 9315', 24500000)">Mua ngay</button>
+                        <button class="btn-buy">Xem chi tiết</button>
                     </div>
                 </div>
 
@@ -133,7 +121,7 @@
                         </ul>
                     </div>
                     <div class="card-actions">
-                        <button class="btn-buy" onclick="addToCart('Dell XPS 13 Plus', 38900000)">Mua ngay</button>
+                        <button class="btn-buy">Xem chi tiết</button>
                     </div>
                 </div>
 
@@ -157,7 +145,7 @@
                         </ul>
                     </div>
                     <div class="card-actions">
-                        <button class="btn-buy" onclick="addToCart('Dell XPS 15 9530', 48000000)">Mua ngay</button>
+                        <button class="btn-buy" >Xem chi tiết</button>
                     </div>
                 </div>
 
@@ -182,7 +170,7 @@
                         </ul>
                     </div>
                     <div class="card-actions">
-                        <button class="btn-buy" onclick="addToCart('Dell XPS 17 9730', 65500000)">Mua ngay</button>
+                        <button class="btn-buy" >Xem chi tiết</button>
                     </div>
                 </div>
 
@@ -207,7 +195,7 @@
                         </ul>
                     </div>
                     <div class="card-actions">
-                        <button class="btn-buy" onclick="addToCart('Dell XPS 13 2-in-1', 32000000)">Mua ngay</button>
+                        <button class="btn-buy" >Xem chi tiết</button>
                     </div>
                 </div>
             </div>
@@ -235,7 +223,7 @@
                         </ul>
                     </div>
                     <div class="card-actions">
-                        <button class="btn-buy" onclick="buyProduct('Dell Precision 3581', 34500000)">Mua ngay</button>
+                        <button class="btn-buy" >Xem chi tiết</button>
                     </div>
                 </div>
 
@@ -259,7 +247,7 @@
                         </ul>
                     </div>
                     <div class="card-actions">
-                        <button class="btn-buy" onclick="buyProduct('Dell Precision 5480', 49000000)">Mua ngay</button>
+                        <button class="btn-buy" >Xem chi tiết</button>
                     </div>
                 </div>
 
@@ -283,7 +271,7 @@
                         </ul>
                     </div>
                     <div class="card-actions">
-                        <button class="btn-buy" onclick="buyProduct('Dell Precision 5680', 75000000)">Mua ngay</button>
+                        <button class="btn-buy" >Xem chi tiết</button>
                     </div>
                 </div>
 
@@ -307,7 +295,7 @@
                         </ul>
                     </div>
                     <div class="card-actions">
-                        <button class="btn-buy" onclick="buyProduct('Dell Precision 7680', 58000000)">Mua ngay</button>
+                        <button class="btn-buy" >Xem chi tiết</button>
                     </div>
                 </div>
 
@@ -331,7 +319,7 @@
                         </ul>
                     </div>
                     <div class="card-actions">
-                        <button class="btn-buy" onclick="buyProduct('Dell Precision 7780', 110000000)">Mua ngay</button>
+                        <button class="btn-buy" >Xem chi tiết</button>
                     </div>
                 </div>
             </div>
@@ -359,7 +347,7 @@
                         </ul>
                     </div>
                     <div class="card-actions">
-                        <button class="btn-buy" onclick="buyProduct('Dell Latitude 3440', 13500000)">Mua ngay</button>
+                        <button class="btn-buy" >Xem chi tiết</button>
                     </div>
                 </div>
 
@@ -383,7 +371,7 @@
                         </ul>
                     </div>
                     <div class="card-actions">
-                        <button class="btn-buy" onclick="buyProduct('Dell Latitude 5440', 21000000)">Mua ngay</button>
+                        <button class="btn-buy" >Xem chi tiết</button>
                     </div>
                 </div>
 
@@ -407,7 +395,7 @@
                         </ul>
                     </div>
                     <div class="card-actions">
-                        <button class="btn-buy" onclick="buyProduct('Dell Latitude 7440', 31000000)">Mua ngay</button>
+                        <button class="btn-buy" >Xem chi tiết</button>
                     </div>
                 </div>
 
@@ -431,7 +419,7 @@
                         </ul>
                     </div>
                     <div class="card-actions">
-                        <button class="btn-buy" onclick="buyProduct('Dell Latitude 9440', 45000000)">Mua ngay</button>
+                        <button class="btn-buy" >Xem chi tiết</button>
                     </div>
                 </div>
 
@@ -455,7 +443,7 @@
                         </ul>
                     </div>
                     <div class="card-actions">
-                        <button class="btn-buy" onclick="buyProduct('Dell Latitude 5540', 23000000)">Mua ngay</button>
+                        <button class="btn-buy" >Xem chi tiết</button>
                     </div>
                 </div>
             </div>

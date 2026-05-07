@@ -60,28 +60,72 @@ const handleRegister = (e) => {
     showForm('login'); // Chuyển sang form đăng nhập ngay
 };
 
-// 4. XỬ LÝ ĐĂNG NHẬP (Login Logic)
-const handleLogin = (e) => {
+// Chạy ngay khi trang web tải xong
+document.addEventListener('DOMContentLoaded', () => {
+    checkLoginStatus();
+
+    // Gán sự kiện cho form đăng nhập (nếu đang ở trang login.html)
+    const loginForm = document.getElementById('login-form');
+    if (loginForm) {
+        loginForm.addEventListener('submit', handleLogin);
+    }
+});
+
+// Chạy hàm kiểm tra ngay khi trang web vừa load xong
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. Kiểm tra xem có ai đang đăng nhập không để hiện tên
+    checkLoginStatus();
+
+    // 2. Lắng nghe sự kiện bấm nút "VÀO CỬA HÀNG" (chỉ chạy nếu đang ở trang login)
+    const loginForm = document.getElementById('login-form');
+    if (loginForm) {
+        loginForm.addEventListener('submit', handleLogin);
+    }
+});
+
+// HÀM XỬ LÝ ĐĂNG NHẬP
+function handleLogin(e) {
     e.preventDefault();
     const username = document.getElementById('l-user').value.trim();
     const password = document.getElementById('l-pass').value;
 
-    let db = JSON.parse(localStorage.getItem('userDB'));
+    // Lấy danh sách tài khoản (mặc định tạo 1 user admin/123 nếu chưa có ai đăng ký)
+    let db = JSON.parse(localStorage.getItem('userDB')) || [{username: 'admin', password: '123'}];
+    
     const userFound = db.find(u => u.username === username && u.password === password);
 
     if (userFound) {
-        localStorage.setItem('currentUser', username);
-        alert(`Chào mừng ${username} quay trở lại!`);
-        window.location.href = 'index.html'; // Chuyển về trang chủ
+        localStorage.setItem('currentUser', username); // Lưu tên người dùng lại
+        alert("Đăng nhập thành công!");
+        window.location.href = '../html/index.html'; // Quay lại trang chủ
     } else {
-        alert("Sai tài khoản hoặc mật khẩu. Vui lòng thử lại!");
+        alert("Sai tài khoản hoặc mật khẩu rồi!");
     }
-};
+}
 
-// 5. XỬ LÝ ĐĂNG XUẤT (Logout)
+// HÀM KIỂM TRA TRẠNG THÁI ĐĂNG NHẬP (Để hiện/ẩn nút)
+function checkLoginStatus() {
+    const currentUser = localStorage.getItem('currentUser');
+    const guestZone = document.getElementById('guest-zone');
+    const userZone = document.getElementById('user-zone');
+    const displayName = document.getElementById('user-display-name');
+
+    if (currentUser) {
+        // Đã có người đăng nhập: Ẩn nút cũ, hiện vùng Chào mừng
+        if (guestZone) guestZone.style.display = 'none';
+        if (userZone) userZone.style.display = 'flex';
+        if (displayName) displayName.innerText = currentUser;
+    } else {
+        // Chưa có ai đăng nhập: Hiện nút Đăng nhập/Đăng ký
+        if (guestZone) guestZone.style.display = 'block';
+        if (userZone) userZone.style.display = 'none';
+    }
+}
+
+// HÀM ĐĂNG XUẤT
 function handleLogout() {
     localStorage.removeItem('currentUser');
-    location.reload();
+    window.location.reload(); // Load lại trang để các nút hiện ra như cũ
 }
 
 // 6. QUẢN LÝ GIỎ HÀNG (Cart Logic)
@@ -108,8 +152,7 @@ function buyProduct(name, price) {
         updateCartHoverUI(); // Cập nhật lại UI hover ngay lập tức
     }
 }
-
-// 7. CẬP NHẬT GIAO DIỆN GIỎ HÀNG KHI HOVER (Cart Hover UI)
+// 7. CẬP NHẬT GIAO DIỆN GIỎ HÀNG KHI HOVER (Chỉ hiện SL và Tên máy)
 function updateCartHoverUI() {
     const activeUser = localStorage.getItem('currentUser');
     const cartDropdown = document.getElementById('cart-dropdown-content');
@@ -117,52 +160,48 @@ function updateCartHoverUI() {
     if (!cartDropdown) return;
 
     if (!activeUser) {
-        cartDropdown.innerHTML = '<div class="empty-msg">Vui lòng đăng nhập để xem giỏ hàng</div>';
+        cartDropdown.innerHTML = '<div class="empty-msg" style="padding: 15px; text-align: center;">Vui lòng đăng nhập</div>';
         return;
     }
 
-    let db = JSON.parse(localStorage.getItem('userDB'));
+    let db = JSON.parse(localStorage.getItem('userDB')) || [];
     let user = db.find(u => u.username === activeUser);
-    let cart = user.myCart || [];
-
-    if (cart.length === 0) {
-        cartDropdown.innerHTML = '<div class="empty-msg">Giỏ hàng của bạn đang trống</div>';
+    
+    if (!user || !user.myCart || user.myCart.length === 0) {
+        cartDropdown.innerHTML = '<div class="empty-msg" style="padding: 15px; text-align: center;">Giỏ hàng trống</div>';
         return;
     }
 
-    // Nhóm sản phẩm và tính tiền
+    // Nhóm sản phẩm để tính số lượng (qty)
     let summary = {};
-    cart.forEach(item => {
+    user.myCart.forEach(item => {
         if (!summary[item.productName]) {
-            summary[item.productName] = { price: item.productPrice, qty: 0 };
+            summary[item.productName] = { qty: 1 };
         }
         summary[item.productName].qty++;
     });
 
-    let html = '<div class="cart-scroll-area">';
-    let totalAll = 0;
+    let html = '<div class="cart-scroll-area" style="padding: 5px;">';
 
     for (let name in summary) {
-        let itemTotal = summary[name].price * summary[name].qty;
-        totalAll += itemTotal;
+        let qty = summary[name].qty;
+        
+        // Giao diện tối giản: [Số lượng]x [Tên dòng máy]
         html += `
-            <div class="cart-hover-item">
-                <div class="item-meta">
-                    <span class="name">${name}</span>
-                    <span class="details">SL: ${summary[name].qty} x ${summary[name].price.toLocaleString()}đ</span>
-                </div>
-                <div class="item-price">${itemTotal.toLocaleString()}đ</div>
+            <div class="cart-hover-item" style="padding: 8px 10px; border-bottom: 1px solid #f5f5f5; display: flex; align-items: center; gap: 10px;">
+                <span style="font-weight: bold; color: #007bff; min-width: 25px;">${qty}x</span>
+                <span style="color: #333; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                    ${name}
+                </span>
             </div>
         `;
     }
 
     html += `</div>
-        <div class="cart-hover-footer">
-            <div class="total-bar">
-                <span>TỔNG TIỀN:</span>
-                <span class="grand-total">${totalAll.toLocaleString()}đ</span>
-            </div>
-            <button class="btn-pay">THANH TOÁN NGAY</button>
+        <div class="cart-hover-footer" style="padding: 10px; border-top: 1px solid #eee; margin-top: 5px;">
+            <button class="btn-pay" style="width: 100%; background: #007bff; color: white; border: none; padding: 10px; border-radius: 4px; cursor: pointer; font-weight: bold;">
+                THANH TOÁN NGAY
+            </button>
         </div>`;
 
     cartDropdown.innerHTML = html;

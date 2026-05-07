@@ -371,7 +371,7 @@ body {
 }
 /* --- Ghép thêm phần Auth Buttons --- */
 
-.auth-buttons {
+.guest-zone {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -379,7 +379,7 @@ body {
 }
 
 /* Nút Đăng nhập - Thanh lịch & Tinh tế */
-.btn-login {
+.nav-login-text {
     text-decoration: none;
     color: #444;
     font-size: 14px;
@@ -388,12 +388,9 @@ body {
     transition: color 0.3s ease;
 }
 
-.btn-login:hover {
-    color: #0076ce;
-}
 
 /* Nút Đăng ký - Hiệu ứng Glassmorphism & Pastel Xanh Mint */
-.btn-register {
+.nav-register-pill {
     text-decoration: none;
     font-size: 13.5px;
     font-weight: 600;
@@ -1017,3 +1014,76 @@ body {
 }
 
 .btn-back:hover { background: #e0e0e0; }
+/* Style vùng User sau khi đăng nhập */
+#user-zone {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #e0f2f1; /* Màu xanh Mint pastel */
+    padding: 5px 15px;
+    border-radius: 20px;
+    border: 1px solid #b2dfdb;
+}
+
+.user-welcome {
+    color: #0076d6; /* Màu xanh Dell */
+    font-size: 0.9rem;
+}
+
+.btn-logout-small {
+    background: #ffcdd2; /* Đỏ pastel nhẹ */
+    border: none;
+    padding: 2px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.7rem;
+    color: #c62828;
+}
+
+.btn-logout-small:hover {
+    background: #ef9a9a;
+}
+/* Container chứa ảnh */
+.detail-image {
+    flex: 1; /* Để container này chiếm không gian cân đối với phần thông tin */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9; /* Một lớp nền nhẹ để làm nổi bật máy tính */
+    border-radius: 12px;
+    padding: 20px;
+    overflow: hidden;
+}
+
+/* Định dạng ảnh chi tiết */
+#detailImg {
+    width: 100%;      /* Chiều rộng tối đa theo container */
+    max-width: 500px; /* Bạn có thể chỉnh con số này để ảnh không quá to */
+    height: 400px;    /* Cố định chiều cao để tất cả các máy tính đều bằng nhau */
+    object-fit: contain; /* Quan trọng nhất: Giữ nguyên tỉ lệ ảnh, không bị méo hay mất hình */
+    transition: transform 0.3s ease;
+}
+
+/* Thêm hiệu ứng zoom nhẹ khi di chuột vào ảnh (tùy chọn) */
+#detailImg:hover {
+    transform: scale(1.05);
+}
+
+/* Đảm bảo layout chia đôi trên màn hình máy tính */
+.detail-content {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start; /* Để thông tin căn từ đỉnh xuống */
+    margin-top: 20px;
+}
+
+/* Responsive cho điện thoại */
+@media (max-width: 768px) {
+    .detail-content {
+        flex-direction: column;
+    }
+    
+    #detailImg {
+        height: 300px; /* Trên điện thoại thì cho ảnh thấp lại một chút */
+    }
+}
