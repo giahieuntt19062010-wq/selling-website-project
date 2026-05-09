@@ -872,56 +872,8 @@ body {
     transform: translateY(-3px); /* Nổi lên một chút */
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Đổ bóng đậm hơn một chút khi nổi lên */
 }
-/*phần tìm kiếm trong .navbar
-/* Container bao quanh thanh search */
-.nav-search-wrapper {
-    display: flex;
-    align-items: center;
-    position: relative;
-    background: #f4f4f4; /* Màu xám rất nhạt để phân biệt với nền trắng của nav */
-    border-radius: 20px;
-    padding: 5px 15px;
-    margin: 0 15px; /* Tạo khoảng cách với giỏ hàng và menu */
-    transition: all 0.3s ease;
-    border: 1px solid transparent;
-}
 
-/* Hiệu ứng khi nhấn vào ô search */
-.nav-search-wrapper:focus-within {
-    background: #fff;
-    border-color: #0076ce;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
 
-/* Ô input chính */
-#nav-search-input {
-    border: none;
-    background: transparent;
-    outline: none;
-    font-size: 14px;
-    font-weight: 300; /* Làm chữ mảnh cho giống font Dell */
-    color: #333;
-    width: 150px; /* Độ rộng vừa phải để không chiếm hết chỗ của menu */
-    transition: width 0.4s ease;
-    font-family: 'Roboto', sans-serif !important;
-}
-
-/* Khi click vào thì thanh search dài ra một chút cho sang */
-#nav-search-input:focus {
-    width: 220px;
-}
-
-/* Nút icon search */
-#nav-search-submit {
-    background: none;
-    border: none;
-    color: #555;
-    cursor: pointer;
-    padding-left: 8px;
-    display: flex;
-    align-items: center;
-    transition: color 0.3s;
-}
 
 #nav-search-submit:hover {
     color: #0076ce;
@@ -1058,8 +1010,8 @@ body {
 /* Định dạng ảnh chi tiết */
 #detailImg {
     width: 100%;      /* Chiều rộng tối đa theo container */
-    max-width: 500px; /* Bạn có thể chỉnh con số này để ảnh không quá to */
-    height: 400px;    /* Cố định chiều cao để tất cả các máy tính đều bằng nhau */
+    max-width: 800px; /* Bạn có thể chỉnh con số này để ảnh không quá to */
+    height: 520px;    /* Cố định chiều cao để tất cả các máy tính đều bằng nhau */
     object-fit: contain; /* Quan trọng nhất: Giữ nguyên tỉ lệ ảnh, không bị méo hay mất hình */
     transition: transform 0.3s ease;
 }
@@ -1087,3 +1039,4 @@ body {
         height: 300px; /* Trên điện thoại thì cho ảnh thấp lại một chút */
     }
 }
+/* Ẩn icon và khung chứa chatbot dựa trên ID bạn đã cung cấp */

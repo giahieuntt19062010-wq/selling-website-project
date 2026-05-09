@@ -361,3 +361,33 @@ function closeDetail() {
     document.getElementById('detailPage').style.display = 'none';
     document.body.style.overflow = 'auto';
 }       
+// 1. Hàm hỗ trợ ẩn/hiện chatbot dựa trên trạng thái trang chi tiết
+function controlChatbot() {
+    const detailPage = document.getElementById('detailPage');
+    const chatIcon = document.getElementById('chat-icon');
+    const chatContainer = document.getElementById('chatbot-container');
+
+    // Kiểm tra nếu trang chi tiết đang HIỆN (không phải display: none)
+    if (detailPage && detailPage.style.display !== 'none' && detailPage.style.display !== '') {
+        if (chatIcon) chatIcon.style.setProperty('display', 'none', 'important');
+        if (chatContainer) chatContainer.style.setProperty('display', 'none', 'important');
+    } else {
+        // Nếu trang chi tiết đang ĐÓNG, hiện lại icon
+        if (chatIcon) chatIcon.style.setProperty('display', 'block', 'important');
+    }
+}
+
+// 2. Kỹ thuật quan sát: Theo dõi sự thay đổi của trang chi tiết
+// Cách này giúp code tự chạy mà không cần bạn phải sửa hàm openDetail hay closeDetail
+const observer = new MutationObserver(() => {
+    controlChatbot();
+});
+
+// Bắt đầu theo dõi trang chi tiết xem nó có bị đổi style (ẩn/hiện) không
+const detailElement = document.getElementById('detailPage');
+if (detailElement) {
+    observer.observe(detailElement, { attributes: true, attributeFilter: ['style'] });
+}
+
+// Chạy kiểm tra một lần khi vừa load trang
+controlChatbot();
