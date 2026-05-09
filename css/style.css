@@ -590,36 +590,7 @@ body {
     margin-top: 10px;
     font-size: 12px;
 }
-#chat-icon {
-        position: fixed;
-        bottom: 25px; /* Tăng khoảng cách một chút cho đẹp */
-        right: 25px;
-        width: 60px;
-        height: 60px;
-        /* THAY ĐỔI: Dùng màu xanh dương đậm trùng màu nút "Mua ngay" của bạn */
-        background-color: #016cd1; 
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        /* Hiệu ứng bóng đổ mềm mại, chuyên nghiệp */
-        box-shadow: 0 4px 16px rgba(1, 108, 209, 0.3); 
-        z-index: 9999; /* Đảm bảo luôn nằm trên cùng */
-        transition: all 0.3s ease;
-    }
-    
-    #chat-icon:hover {
-        transform: scale(1.1) rotate(5deg); /* Thêm hiệu ứng xoay nhẹ khi di chuột */
-        background-color: #0056a3; /* Tối màu hơn một chút khi hover */
-    }
 
-    /* Style cho icon bên trong nút */
-    #chat-icon img {
-        width: 32px;
-        height: 32px;
-        filter: invert(1); /* Làm icon trắng lên */
-    }
 
     /* 2. KHUNG CHỨA CHATBOT */
     #chatbot-container {
@@ -1039,4 +1010,33 @@ body {
         height: 300px; /* Trên điện thoại thì cho ảnh thấp lại một chút */
     }
 }
-/* Ẩn icon và khung chứa chatbot dựa trên ID bạn đã cung cấp */
+#chat-icon {
+        position: fixed;
+        bottom: 25px; /* Tăng khoảng cách một chút cho đẹp */
+        right: 25px;
+        width: 60px;
+        height: 60px;
+        /* THAY ĐỔI: Dùng màu xanh dương đậm trùng màu nút "Mua ngay" của bạn */
+        background-color: #016cd1; 
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        /* Hiệu ứng bóng đổ mềm mại, chuyên nghiệp */
+        box-shadow: 0 4px 16px rgba(1, 108, 209, 0.3); 
+        z-index: 9999; /* Đảm bảo luôn nằm trên cùng */
+        transition: all 0.3s ease;
+    }
+    
+    #chat-icon:hover {
+        transform: scale(1.1) rotate(5deg); /* Thêm hiệu ứng xoay nhẹ khi di chuột */
+        background-color: #0056a3; /* Tối màu hơn một chút khi hover */
+    }
+
+    /* Style cho icon bên trong nút */
+    #chat-icon img {
+        width: 32px;
+        height: 32px;
+        filter: invert(1); /* Làm icon trắng lên */
+    }
