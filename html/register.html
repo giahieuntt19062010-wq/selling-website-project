@@ -2,49 +2,34 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Đăng ký | Tài khoản Dell Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Ký</title>
     <link rel="stylesheet" href="../css/style2.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
-<body class="auth-body">
+<body>
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="../html/index.html">Trang chủ</a></li>
+            <li><a href="../html/login.html" class="btn-outline">Đăng nhập</a></li>
+        </ul>
+    </nav>
 
     <div class="auth-wrapper">
-        <div class="auth-container">
-            <div class="auth-header">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Dell_logo_2016.svg" alt="Dell Logo">
-                <div class="auth-tabs">
-                    <button id="tab-login" class="tab-btn" onclick="window.location.href='login.html'">ĐĂNG NHẬP</button>
-                    <button id="tab-register" class="tab-btn active">ĐĂNG KÝ</button>
-                </div>
-            </div>
-
-            <div id="register-section" class="auth-content active">
-                <form id="register-form">
-                    <div class="input-field">
-                        <label>Tên đăng nhập (Username)</label>
-                        <input type="text" id="r-user" placeholder="Ví dụ: delluser2026" required>
-                    </div>
-                    <div class="input-field">
-                        <label>Địa chỉ Gmail</label>
-                        <input type="email" id="r-email" placeholder="example@gmail.com" required>
-                    </div>
-                    <div class="input-field">
-                        <label>Mật khẩu mới</label>
-                        <input type="password" id="r-pass" placeholder="Tối thiểu 8 ký tự" required minlength="8">
-                    </div>
-                    <div class="policy-text">
-                        Bằng cách nhấn đăng ký, bạn đồng ý với các <a href="#">Điều khoản dịch vụ</a> và <a href="#">Chính sách bảo mật</a> của chúng tôi.
-                    </div>
-                    <button type="submit" class="btn-main-blue">TẠO TÀI KHOẢN NGAY</button>
-                </form>
-            </div>
-
-            <div class="auth-footer">
-                <a href="../html/index.html"><i class="fas fa-arrow-left"></i> Quay lại trang chủ</a>
-            </div>
+        <div class="auth-form">
+            <h2>ĐĂNG KÝ</h2>
+            <form id="registerForm">
+                <input type="text" id="regName" placeholder="Tên của bạn" required>
+                <input type="email" id="regEmail" placeholder="Gmail" required>
+                <input type="password" id="regPass" placeholder="Mật khẩu" required>
+                <button type="submit">HOÀN TẤT</button>
+            </form>
+            <p style="text-align: center; margin-top: 15px; font-size: 0.9rem;">
+                Đã có tài khoản? <a href="../html/login.html">Đăng nhập ngay</a>
+            </p>
         </div>
     </div>
-    <script src="../js/script.js"></script>
+
+    <script type="module" src="../js/script.js"></script>
 </body>
 </html>
